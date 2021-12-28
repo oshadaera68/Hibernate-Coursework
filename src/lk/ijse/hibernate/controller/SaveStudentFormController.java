@@ -65,5 +65,10 @@ public class SaveStudentFormController {
         } else {
             new Alert(Alert.AlertType.ERROR, "Try Again....").show();
         }
+
+        txtId.clear();
+        txtName.clear();
+        txtNIC.clear();
+        txtEmail.clear();
     }
 }

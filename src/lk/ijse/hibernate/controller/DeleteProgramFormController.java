@@ -11,21 +11,33 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
+import lk.ijse.hibernate.bo.custom.Impl.ProgramBOImpl;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class DeleteProgramFormController {
+    private final ProgramBOImpl programBo = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
     public AnchorPane rootContext;
-    public JFXTextField txtProgramId;
-    public JFXTextField txtProgramName;
     public JFXTextField txtDuration;
     public JFXTextField txtFee;
+    public JFXTextField txtId;
+    public JFXTextField txtProName;
 
-    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+
+    public void searchProgram(ActionEvent actionEvent) {
+        String programId = txtId.getText();
+
+
+    }
+
+    public void backToHome(MouseEvent mouseEvent) throws IOException {
         URL resource = this.getClass().getResource("../view/ProgramForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
@@ -36,9 +48,18 @@ public class DeleteProgramFormController {
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 
-    public void searchProgram(ActionEvent actionEvent) {
-    }
-
     public void deleteProgramOnAction(ActionEvent actionEvent) {
+        boolean deleteProgram = programBo.deleteProgram(txtId.getText());
+
+        if (deleteProgram) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Deleted", ButtonType.OK).show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again", ButtonType.OK).show();
+        }
+
+        txtId.clear();
+        txtProName.clear();
+        txtDuration.clear();
+        txtFee.clear();
     }
 }
