@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootContext" prefHeight="411.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.StudentFormController">
+   <children>
+      <Label layoutX="169.0" layoutY="14.0" text="Student Form - Sipsewana Institute" textFill="#232fb2">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="127.0" layoutY="39.0" prefHeight="0.0" prefWidth="352.0" />
+      <ImageView fx:id="imgAdd" fitHeight="64.0" fitWidth="71.0" layoutX="92.0" layoutY="82.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-plus-+-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgSearch" fitHeight="74.0" fitWidth="64.0" layoutX="260.0" layoutY="82.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgUpdate" fitHeight="74.0" fitWidth="64.0" layoutX="434.0" layoutY="82.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-update-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgDelete" fitHeight="74.0" fitWidth="64.0" layoutX="92.0" layoutY="189.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-delete-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgSelectAll" fitHeight="74.0" fitWidth="64.0" layoutX="260.0" layoutY="189.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-view-all-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgHome" fitHeight="48.0" fitWidth="64.0" layoutX="19.0" layoutY="13.0" onMouseClicked="#backToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/home-icon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblMenu" alignment="CENTER" contentDisplay="CENTER" layoutY="291.0" prefHeight="32.0" prefWidth="600.0" text="Welcome" textAlignment="CENTER" textFill="#1514db">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescription" alignment="CENTER" layoutX="149.0" layoutY="323.0" prefHeight="17.0" prefWidth="309.0" text="Please select one of above main operations to proceed">
+         <font>
+            <Font name="Ubuntu" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

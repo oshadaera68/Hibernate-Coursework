@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootContext" prefHeight="437.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.SelectAllStudentFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="257.0" layoutY="18.0" prefHeight="26.0" prefWidth="220.0" text="All Students Form " textFill="#3125dd">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="47.0" fitWidth="51.0" layoutX="28.0" layoutY="18.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/home-icon.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="267.0" layoutY="48.0" prefHeight="2.0" prefWidth="196.0" />
+      <TableView fx:id="tblStudent" layoutX="14.0" layoutY="79.0" prefHeight="336.0" prefWidth="706.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="106.0" text="Id" />
+          <TableColumn fx:id="colName" prefWidth="98.0" text="Name" />
+            <TableColumn fx:id="colNic" prefWidth="121.0" text="nic" />
+            <TableColumn fx:id="colEmail" prefWidth="124.0" text="email" />
+            <TableColumn fx:id="colAddress" prefWidth="110.0" text="address" />
+            <TableColumn fx:id="colContactNo" prefWidth="146.0" text="contact no" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

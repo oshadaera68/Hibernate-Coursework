@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootContext" prefHeight="489.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.SaveStudentFormController">
+   <children>
+      <Label layoutX="80.0" layoutY="14.0" text="Save Student Form" textFill="#233aab">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="67.0" layoutY="39.0" prefHeight="3.0" prefWidth="165.0" />
+      <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="13.0" layoutY="13.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/home-icon.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="67.0" layoutY="67.0" prefHeight="25.0" prefWidth="174.0" promptText="Student ID" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="65.0" layoutY="129.0" prefHeight="25.0" prefWidth="174.0" promptText="Student Name" />
+      <JFXTextField fx:id="txtNIC" labelFloat="true" layoutX="65.0" layoutY="190.0" prefHeight="25.0" prefWidth="174.0" promptText="NIC" />
+      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="64.0" layoutY="253.0" prefHeight="25.0" prefWidth="174.0" promptText="Email" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="63.0" layoutY="318.0" prefHeight="25.0" prefWidth="174.0" promptText="Address" />
+      <JFXTextField fx:id="txtContactNo" labelFloat="true" layoutX="63.0" layoutY="385.0" prefHeight="25.0" prefWidth="174.0" promptText="Contact No" />
+      <JFXButton layoutX="105.0" layoutY="436.0" onAction="#saveStudentOnAction" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #9b59b6;" text="Save" textFill="WHITE" />
+   </children>
+</AnchorPane>
