@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -48,6 +49,22 @@ public class UpdateStudentFormController {
     }
 
     public void searchStudent(ActionEvent actionEvent) {
+        String cusId = txtId.getText();
+        Student student = studentBO.searchById(cusId);
+        if (student == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
+        } else {
+            setData(student);
+        }
+    }
+
+    void setData(Student s){
+        txtId.setText(s.getId());
+        txtName.setText(s.getName());
+        txtNIC.setText(s.getNic());
+        txtEmail.setText(s.getEmail());
+        txtAddress.setText(s.getAddress());
+        txtContactNo.setText(s.getContactNo());
     }
 
     public void updateStudentOnAction(ActionEvent actionEvent) {

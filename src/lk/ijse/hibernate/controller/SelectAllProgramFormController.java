@@ -52,14 +52,16 @@ public class SelectAllProgramFormController {
         colProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         colFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
+
+        try {
+            ArrayList<Program> programArrayList = programBO.getAllPrograms();
+            for (Program program : programArrayList) {
+                tblProgram.getItems().add(new ProgramTM(program.getProgramId(),program.getProgramName(),program.getDuration(), program.getFee()));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
-    try {
-        ArrayList<Program> programArrayList = programBO.getAllPrograms();
-        for (Program program : programArrayList) {
-            tblProgram.getItems().add(new ProgramTM(program.getProgramId(),program.getProgramName(),program.getDuration(), program.getFee()));
-        }
-    }catch(Exception e){
-        e.printStackTrace();
-    }
+
 }

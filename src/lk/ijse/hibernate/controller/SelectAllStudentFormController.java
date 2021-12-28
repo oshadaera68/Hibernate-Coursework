@@ -17,10 +17,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
 import lk.ijse.hibernate.bo.custom.Impl.StudentBOImpl;
+import lk.ijse.hibernate.entity.Student;
 import lk.ijse.hibernate.view.tdm.StudentTM;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class SelectAllStudentFormController {
 
@@ -41,7 +44,15 @@ public class SelectAllStudentFormController {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colContactNo.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
-        StudentBOImpl studentBO = (StudentBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.STUDENT);
+
+        try {
+            ArrayList<Student> studentArrayList = studentBO.getAllStudents();
+            for (Student student : studentArrayList ) {
+                tblStudent.getItems().add(new StudentTM(student.getId(), student.getName(), student.getNic(), student.getEmail(), student.getAddress(), student.getContactNo()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {
@@ -54,6 +65,4 @@ public class SelectAllStudentFormController {
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
-
-
 }

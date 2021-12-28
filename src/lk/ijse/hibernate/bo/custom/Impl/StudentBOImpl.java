@@ -14,30 +14,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
-    private final StudentDAO stu = (StudentDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DaoTypes.STUDENT);
+    private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DaoTypes.STUDENT);
 
     @Override
     public boolean saveStudent(Student dto) {
-        return stu.save(new Student(dto.getId(), dto.getName(), dto.getNic(), dto.getEmail(), dto.getAddress(), dto.getContactNo()));
+        return studentDAO.save(new Student(dto.getId(), dto.getName(), dto.getNic(), dto.getEmail(), dto.getAddress(), dto.getContactNo()));
     }
 
     @Override
     public boolean updateStudent(Student dto) {
-        return stu.update(new Student(dto.getId(), dto.getName(), dto.getNic(), dto.getEmail(), dto.getAddress(), dto.getContactNo()));
+        return studentDAO.update(new Student(dto.getId(), dto.getName(), dto.getNic(), dto.getEmail(), dto.getAddress(), dto.getContactNo()));
     }
 
     @Override
     public boolean deleteCustomer(String id) {
-        return stu.delete(id);
+        return studentDAO.delete(id);
     }
 
     @Override
-    public ArrayList<StudentDTO> getAllStudents() {
-        List<Student> list = stu.findAll();
-        ArrayList<StudentDTO> arrayList = new ArrayList<>();
+    public ArrayList<Student> getAllStudents() {
+        List<Student> list = studentDAO.findAll();
+        ArrayList<Student> arrayList = new ArrayList<>();
         for (Student student : list) {
-            arrayList.add(new StudentDTO(student.getId(),student.getName(),student.getNic(),student.getEmail(),student.getAddress(), student.getContactNo()));
+            arrayList.add(new Student(student.getId(),student.getName(),student.getNic(),student.getEmail(),student.getAddress(), student.getContactNo()));
         }
         return arrayList;
+    }
+
+    public Student searchById(String studentId) {
+        return studentDAO.get(studentId);
     }
 }
