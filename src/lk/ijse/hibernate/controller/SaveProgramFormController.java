@@ -17,20 +17,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
 import lk.ijse.hibernate.bo.custom.Impl.ProgramBOImpl;
-import lk.ijse.hibernate.dto.ProgramDTO;
-import lk.ijse.hibernate.dto.StudentDTO;
+import lk.ijse.hibernate.entity.Program;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class SaveProgramFormController {
+    private final ProgramBOImpl programBO = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
     public JFXTextField txtId;
     public JFXTextField txtProgram;
     public JFXTextField txtDuration;
     public JFXTextField txtFee;
     public AnchorPane rootContext;
-
-    private final ProgramBOImpl programBO = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
 
     public void saveProgramOnAction(ActionEvent actionEvent) {
         String id = txtId.getText();
@@ -38,26 +36,14 @@ public class SaveProgramFormController {
         String duration = txtDuration.getText();
         double fee = Double.parseDouble(txtFee.getText());
 
-        /*System.out.println(id);
-        System.out.println(proName);
-        System.out.println(duration);
-        System.out.println(fee);*/
-        try {
-            if (programBO.saveProgram(new ProgramDTO(
-                    id,
-                    proName,
-                    duration,
-                    fee
-            ))) ;
-            {
-                new Alert(Alert.AlertType.CONFIRMATION, "Do you wanna Save it?").showAndWait();
-                txtId.clear();
-                txtProgram.clear();
-                txtDuration.clear();
-                txtDuration.clear();
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Something Happened. try again carefully!").showAndWait();
+        Program program = new Program(
+                id, proName, duration, fee
+        );
+
+        if (programBO.saveProgram(program)) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Try Again").show();
         }
     }
 

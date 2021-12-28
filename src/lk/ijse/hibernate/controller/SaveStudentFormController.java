@@ -56,43 +56,14 @@ public class SaveStudentFormController {
         String address = txtAddress.getText();
         String conNo = txtContactNo.getText();
 
-       /* System.out.println(id);
-        System.out.println(name);
-        System.out.println(nic);
-        System.out.println(email);
-        System.out.println(address);
-        System.out.println(conNo);*/
-
-       /* try {
-            if (studentBo.saveStudent(new StudentDTO(
-                    id,
-                    name,
-                    nic,
-                    email,
-                    address,
-                    conNo
-            ))) ;
-            {
-                new Alert(Alert.AlertType.CONFIRMATION, "Do you wanna Save it?").showAndWait();
-                txtId.clear();
-                txtName.clear();
-                txtNIC.clear();
-                txtEmail.clear();
-                txtAddress.clear();
-                txtContactNo.clear();
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Something Happened. try again carefully!").showAndWait();
-        }*/
-
         Student student = new Student(
                 id, name, nic, email, address, conNo
         );
 
         if (studentBo.saveStudent(student)) {
-new Alert(Alert.AlertType.CONFIRMATION,"");
-        }else{
-
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved....").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Try Again....").show();
         }
     }
 }

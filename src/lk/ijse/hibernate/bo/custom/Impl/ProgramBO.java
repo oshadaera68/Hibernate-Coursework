@@ -1,13 +1,14 @@
 package lk.ijse.hibernate.bo.custom.Impl;
 
 import lk.ijse.hibernate.dto.ProgramDTO;
+import lk.ijse.hibernate.entity.Program;
 
 import java.util.ArrayList;
 
 public interface ProgramBO extends SuperBO {
-    boolean saveProgram(ProgramDTO dto);
+    boolean saveProgram(Program dto);
 
-    boolean updateProgram(ProgramDTO dto);
+    boolean updateProgram(Program dto);
 
     boolean deleteProgram(String id);
 

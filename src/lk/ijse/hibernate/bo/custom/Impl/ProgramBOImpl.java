@@ -17,12 +17,12 @@ public class ProgramBOImpl implements ProgramBO {
     ProgramDAO programDAO = (ProgramDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DaoTypes.PROGRAM);
 
     @Override
-    public boolean saveProgram(ProgramDTO dto) {
+    public boolean saveProgram(Program dto) {
         return programDAO.save(new Program(dto.getProgramId(), dto.getProgramName(), dto.getDuration(), dto.getFee()));
     }
 
     @Override
-    public boolean updateProgram(ProgramDTO dto) {
+    public boolean updateProgram(Program dto) {
         return programDAO.update(new Program(dto.getProgramId(), dto.getProgramName(), dto.getDuration(), dto.getFee()));
     }
 

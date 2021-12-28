@@ -50,7 +50,7 @@ public class UpdateProgramFormController {
     }
 
     public void updateProgramOnAction(ActionEvent actionEvent) {
-        ProgramDTO programDto = new ProgramDTO(txtProgramId.getText(), txtProgramName.getText(), txtDuration.getText(), Double.parseDouble(txtFee.getText()));
+       /* ProgramDTO programDto = new ProgramDTO(txtProgramId.getText(), txtProgramName.getText(), txtDuration.getText(), Double.parseDouble(txtFee.getText()));
         try {
             if (programBO.updateProgram(programDto)) {
                 new Alert(Alert.AlertType.INFORMATION, "Update Successfull..!").show();
@@ -59,6 +59,6 @@ public class UpdateProgramFormController {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
