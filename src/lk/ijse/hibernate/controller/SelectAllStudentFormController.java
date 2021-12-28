@@ -11,17 +11,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
+import lk.ijse.hibernate.bo.custom.Impl.StudentBOImpl;
 import lk.ijse.hibernate.view.tdm.StudentTM;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.LinkedHashMap;
-import java.util.regex.Pattern;
 
 public class SelectAllStudentFormController {
 
@@ -33,7 +32,7 @@ public class SelectAllStudentFormController {
     public TableColumn colEmail;
     public TableColumn colAddress;
     public TableColumn colContactNo;
-
+    private final StudentBOImpl studentBO = (StudentBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.STUDENT);
 
     public void initialize() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -42,6 +41,7 @@ public class SelectAllStudentFormController {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colContactNo.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
+        StudentBOImpl studentBO = (StudentBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.STUDENT);
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {
@@ -54,4 +54,6 @@ public class SelectAllStudentFormController {
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
+
+
 }

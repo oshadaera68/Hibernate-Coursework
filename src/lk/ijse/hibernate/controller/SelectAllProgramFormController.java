@@ -15,10 +15,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
+import lk.ijse.hibernate.bo.custom.Impl.ProgramBOImpl;
+import lk.ijse.hibernate.bo.custom.Impl.SuperBO;
+import lk.ijse.hibernate.entity.Program;
 import lk.ijse.hibernate.view.tdm.ProgramTM;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class SelectAllProgramFormController {
     public AnchorPane rootContext;
@@ -27,6 +33,7 @@ public class SelectAllProgramFormController {
     public TableColumn colProgramName;
     public TableColumn colDuration;
     public TableColumn colFee;
+    private ProgramBOImpl programBO = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {
         URL resource = this.getClass().getResource("../view/ProgramForm.fxml");
@@ -40,9 +47,19 @@ public class SelectAllProgramFormController {
     }
 
     public void initialize() {
+
         colProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
         colProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         colFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
+    }
+
+    try {
+        ArrayList<Program> programArrayList = programBO.getAllPrograms();
+        for (Program program : programArrayList) {
+            tblProgram.getItems().add(new ProgramTM(program.getProgramId(),program.getProgramName(),program.getDuration(), program.getFee()));
+        }
+    }catch(Exception e){
+        e.printStackTrace();
     }
 }

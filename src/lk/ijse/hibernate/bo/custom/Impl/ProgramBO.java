@@ -12,5 +12,5 @@ public interface ProgramBO extends SuperBO {
 
     boolean deleteProgram(String id);
 
-    ArrayList<ProgramDTO> getAllPrograms();
+    ArrayList<Program> getAllPrograms();
 }

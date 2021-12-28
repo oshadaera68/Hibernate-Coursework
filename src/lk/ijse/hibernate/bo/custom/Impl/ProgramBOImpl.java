@@ -32,11 +32,11 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
-    public ArrayList<ProgramDTO> getAllPrograms() {
+    public ArrayList<Program> getAllPrograms() {
         List<Program> list = programDAO.findAll();
-        ArrayList<ProgramDTO> arrayList = new ArrayList<>();
+        ArrayList<Program> arrayList = new ArrayList<>();
         for (Program program : list) {
-            arrayList.add(new ProgramDTO(program.getProgramId(), program.getProgramName(), program.getDuration(), program.getFee()));
+            arrayList.add(new Program(program.getProgramId(), program.getProgramName(), program.getDuration(), program.getFee()));
         }
         return arrayList;
     }

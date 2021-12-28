@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
 import lk.ijse.hibernate.bo.custom.Impl.ProgramBOImpl;
 import lk.ijse.hibernate.dto.ProgramDTO;
+import lk.ijse.hibernate.entity.Program;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,15 +28,37 @@ import java.util.regex.Pattern;
 
 public class UpdateProgramFormController {
     public AnchorPane rootContext;
-    public JFXTextField txtProgramId;
-    public JFXTextField txtProgramName;
     public JFXTextField txtDuration;
     public JFXTextField txtFee;
+    public JFXTextField txtId;
+    public JFXTextField txtProName;
     ProgramBOImpl programBO = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
-    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    Pattern idregEx = Pattern.compile("^(S00-)[0-9]{3,20}$");
 
-    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+    public void searchProgram(ActionEvent actionEvent) {
+    }
+
+    public void updateProgramOnAction(ActionEvent actionEvent) {
+        ProgramDTO programDTO = new ProgramDTO(
+                txtId.getText(), txtProName.getText(), txtDuration.getText(),
+                Double.parseDouble(txtFee.getText())
+        );
+
+        Program program = new Program(programDTO.getProgramId(), programDTO.getProgramName(), programDTO.getDuration(), programDTO.getFee());
+        boolean updateProgram = programBO.updateProgram(program);
+
+        if (updateProgram) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again").show();
+        }
+
+        txtId.clear();
+        txtProName.clear();
+        txtDuration.clear();
+        txtFee.clear();
+    }
+
+    public void backToHome(MouseEvent mouseEvent) throws IOException {
         URL resource = this.getClass().getResource("../view/ProgramForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
@@ -44,21 +67,5 @@ public class UpdateProgramFormController {
         primaryStage.setTitle("Program Form | Sipsewana Institute");
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
-    }
-
-    public void searchProgram(ActionEvent actionEvent) {
-    }
-
-    public void updateProgramOnAction(ActionEvent actionEvent) {
-       /* ProgramDTO programDto = new ProgramDTO(txtProgramId.getText(), txtProgramName.getText(), txtDuration.getText(), Double.parseDouble(txtFee.getText()));
-        try {
-            if (programBO.updateProgram(programDto)) {
-                new Alert(Alert.AlertType.INFORMATION, "Update Successfull..!").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Update Failed....!").show();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
     }
 }

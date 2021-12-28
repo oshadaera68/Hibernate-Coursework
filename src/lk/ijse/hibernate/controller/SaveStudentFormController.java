@@ -70,5 +70,7 @@ public class SaveStudentFormController {
         txtName.clear();
         txtNIC.clear();
         txtEmail.clear();
+        txtAddress.clear();
+        txtContactNo.clear();
     }
 }

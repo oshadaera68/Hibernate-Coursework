@@ -22,34 +22,16 @@ public class FactoryConfig {
     private final SessionFactory sessionFactory;
 
     private FactoryConfig() {
+
         Configuration config = new Configuration().addAnnotatedClass(Student.class).addAnnotatedClass(Program.class);
         sessionFactory = config.buildSessionFactory();
-
         Properties properties = new Properties();
-
         try {
             properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-       /* try {
-            properties.load(new FileInputStream("F:\\Projects\\Hibernate Coursework\\src\\hibernate.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        Configuration configuration = new Configuration();
-
-        configuration.configure("hibernate.properties").addProperties(properties)
-                .addAnnotatedClass(Student.class)
-                .addAnnotatedClass(Program.class);
-
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                .applySettings(configuration.getProperties()).build();
-
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry);*/
     }
 
     public static FactoryConfig getInstance() {
