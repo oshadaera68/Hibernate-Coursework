@@ -34,6 +34,6 @@
             <Image url="@../assets/icons8-students-96.png" />
          </image>
       </ImageView>
-      <ProgressIndicator layoutX="435.0" layoutY="227.0" prefHeight="21.0" prefWidth="36.0" progress="0.0" />
+      <ProgressIndicator fx:id="progressIndicator" layoutX="435.0" layoutY="227.0" prefHeight="21.0" prefWidth="36.0" progress="0.0" />
    </children>
 </AnchorPane>

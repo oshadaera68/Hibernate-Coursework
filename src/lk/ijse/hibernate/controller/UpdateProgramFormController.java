@@ -38,7 +38,7 @@ public class UpdateProgramFormController {
 
     public void searchProgram(ActionEvent actionEvent) {
         String programId = txtId.getText();
-        Program program = programBO.searchById(programId);
+        Program program = programBO.getProgram(programId);
         if (program  == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         } else {

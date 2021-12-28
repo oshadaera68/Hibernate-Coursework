@@ -18,23 +18,34 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
 import lk.ijse.hibernate.bo.custom.Impl.ProgramBOImpl;
+import lk.ijse.hibernate.entity.Program;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class DeleteProgramFormController {
-    private final ProgramBOImpl programBo = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
+    private final ProgramBOImpl programBO = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
     public AnchorPane rootContext;
     public JFXTextField txtDuration;
     public JFXTextField txtFee;
     public JFXTextField txtId;
     public JFXTextField txtProName;
 
+    void setData(Program p) {
+        txtId.setText(p.getProgramId());
+        txtProName.setText(p.getProgramName());
+        txtDuration.setText(p.getDuration());
+        txtFee.setText(String.valueOf(p.getFee()));
+    }
 
     public void searchProgram(ActionEvent actionEvent) {
         String programId = txtId.getText();
-
-
+        Program program = programBO.getProgram(programId);
+        if (program == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
+        } else {
+            setData(program);
+        }
     }
 
     public void backToHome(MouseEvent mouseEvent) throws IOException {
@@ -49,7 +60,7 @@ public class DeleteProgramFormController {
     }
 
     public void deleteProgramOnAction(ActionEvent actionEvent) {
-        boolean deleteProgram = programBo.deleteProgram(txtId.getText());
+        boolean deleteProgram = programBO.deleteProgram(txtId.getText());
 
         if (deleteProgram) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted", ButtonType.OK).show();

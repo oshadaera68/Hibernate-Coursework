@@ -40,4 +40,8 @@ public class ProgramBOImpl implements ProgramBO {
         }
         return arrayList;
     }
+
+    public Program getProgram(String id){
+        return programDAO.get(id);
+    }
 }

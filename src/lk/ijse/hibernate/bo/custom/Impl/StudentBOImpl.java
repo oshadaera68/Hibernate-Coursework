@@ -27,7 +27,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean deleteCustomer(String id) {
+    public boolean deleteStudent(String id) {
         return studentDAO.delete(id);
     }
 
@@ -41,7 +41,7 @@ public class StudentBOImpl implements StudentBO {
         return arrayList;
     }
 
-    public Student searchById(String studentId) {
+    public Student getStudent(String studentId) {
         return studentDAO.get(studentId);
     }
 }

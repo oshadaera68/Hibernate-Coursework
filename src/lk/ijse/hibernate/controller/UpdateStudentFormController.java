@@ -49,8 +49,8 @@ public class UpdateStudentFormController {
     }
 
     public void searchStudent(ActionEvent actionEvent) {
-        String cusId = txtId.getText();
-        Student student = studentBO.searchById(cusId);
+        String studentId = txtId.getText();
+        Student student = studentBO.getStudent(studentId);
         if (student == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         } else {

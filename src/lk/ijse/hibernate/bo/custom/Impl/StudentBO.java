@@ -10,7 +10,9 @@ public interface StudentBO extends SuperBO {
 
     boolean updateStudent(Student dto);
 
-    boolean deleteCustomer(String id);
+    boolean deleteStudent(String id);
 
     ArrayList<Student> getAllStudents();
+
+    Student getStudent(String studentId);
 }

@@ -46,7 +46,7 @@ public class SearchStudentFormController {
 
     public void searchStudentOnAction(ActionEvent actionEvent) {
         String studentId = txtId.getText();
-        Student student = studentBO.searchById(studentId);
+        Student student = studentBO.getStudent(studentId);
         if (student == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         } else {
