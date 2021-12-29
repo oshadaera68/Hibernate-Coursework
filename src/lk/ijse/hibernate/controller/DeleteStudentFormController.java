@@ -68,7 +68,7 @@ public class DeleteStudentFormController {
          boolean deleteStudent = studentBO.deleteStudent(txtId.getText());
 
         if (deleteStudent) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Deleted..").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
         }

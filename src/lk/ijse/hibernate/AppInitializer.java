@@ -21,6 +21,8 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("view/SplashScreenForm.fxml"))));
+        primaryStage.setFullScreen(false);
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Welcome Screen");
         primaryStage.show();
     }

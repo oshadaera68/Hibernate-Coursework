@@ -32,6 +32,7 @@ public class DashBoardFormController {
     public ImageView imgProgram;
     public Label lblMenu;
     public Label lblDescription;
+    public ImageView imgPayment;
 
     public void initialize() {
         loadDateAndTime();
@@ -42,7 +43,7 @@ public class DashBoardFormController {
     }
 
     private void loadDateAndTime() {
-//load date
+        //load date
         Date date = new Date();
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         lblDate.setText(f.format(date));
@@ -67,7 +68,7 @@ public class DashBoardFormController {
             ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), icon);
             scaleT.setToX(1);
             scaleT.setToY(1);
-       scaleT.play();
+            scaleT.play();
 
             icon.setEffect(null);
             lblMenu.setText("Welcome to dashboard");
@@ -88,6 +89,11 @@ public class DashBoardFormController {
                 case "imgProgram":
                     lblMenu.setText("Manage Programs");
                     lblDescription.setText("Click to add, edit, delete, search or view programs");
+                    break;
+
+                case "imgPayment":
+                    lblMenu.setText("Manage Payments");
+                    lblDescription.setText("Click to payment section");
                     break;
             }
 
@@ -119,7 +125,9 @@ public class DashBoardFormController {
                 case "imgProgram":
                     root = FXMLLoader.load(getClass().getResource("../view/ProgramForm.fxml"));
                     break;
-
+                case "imgPayment":
+                    root = FXMLLoader.load(getClass().getResource("../view/PaymentForm.fxml"));
+                    break;
             }
 
             if (root != null) {

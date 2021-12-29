@@ -22,12 +22,12 @@
             <Image url="@../assets/home-icon.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="67.0" layoutY="67.0" prefHeight="25.0" prefWidth="174.0" promptText="Student ID" />
-      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="65.0" layoutY="129.0" prefHeight="25.0" prefWidth="174.0" promptText="Student Name" />
-      <JFXTextField fx:id="txtNIC" labelFloat="true" layoutX="65.0" layoutY="190.0" prefHeight="25.0" prefWidth="174.0" promptText="NIC" />
-      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="64.0" layoutY="253.0" prefHeight="25.0" prefWidth="174.0" promptText="Email" />
-      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="63.0" layoutY="318.0" prefHeight="25.0" prefWidth="174.0" promptText="Address" />
-      <JFXTextField fx:id="txtContactNo" labelFloat="true" layoutX="63.0" layoutY="385.0" prefHeight="25.0" prefWidth="174.0" promptText="Contact No" />
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="57.0" layoutY="67.0" prefHeight="31.0" prefWidth="188.0" promptText="Student ID" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="55.0" layoutY="129.0" prefHeight="31.0" prefWidth="188.0" promptText="Student Name" />
+      <JFXTextField fx:id="txtNIC" labelFloat="true" layoutX="55.0" layoutY="190.0" prefHeight="31.0" prefWidth="188.0" promptText="NIC" />
+      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="54.0" layoutY="253.0" prefHeight="31.0" prefWidth="188.0" promptText="Email" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="53.0" layoutY="318.0" prefHeight="31.0" prefWidth="188.0" promptText="Address" />
+      <JFXTextField fx:id="txtContactNo" labelFloat="true" layoutX="53.0" layoutY="385.0" prefHeight="31.0" prefWidth="188.0" promptText="Contact No" />
       <JFXButton layoutX="105.0" layoutY="445.0" onAction="#saveStudentOnAction" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #9b59b6;" text="Save" textFill="WHITE" />
    </children>
 </AnchorPane>
