@@ -14,3 +14,9 @@ MySQL-connector-java-8.0.26.jar
 
 # welcome screen
 ![Annotation 2021-12-29 111725](https://user-images.githubusercontent.com/90706926/147633627-67d9b498-280e-4916-a1b8-3555a88b6125.png)
+
+# dashboard
+![Annotation 2021-12-29 121742](https://user-images.githubusercontent.com/90706926/147634872-8014e31a-9455-48da-acb6-36c5c307fbe9.png)
+
+# student form
+![Annotation 2021-12-29 122113](https://user-images.githubusercontent.com/90706926/147635093-1d1a696d-052f-4686-8611-df08156c0337.png)
