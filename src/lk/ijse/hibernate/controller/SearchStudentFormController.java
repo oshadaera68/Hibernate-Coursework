@@ -41,6 +41,8 @@ public class SearchStudentFormController {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Student Form | Sipsewana Institute");
         primaryStage.centerOnScreen();
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(false);
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 

@@ -56,6 +56,8 @@ public class DeleteProgramFormController {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Program Form | Sipsewana Institute");
         primaryStage.centerOnScreen();
+        primaryStage.setFullScreen(false);
+        primaryStage.setResizable(false);
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 

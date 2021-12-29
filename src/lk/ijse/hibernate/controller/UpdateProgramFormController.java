@@ -82,6 +82,8 @@ public class UpdateProgramFormController {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Program Form | Sipsewana Institute");
         primaryStage.centerOnScreen();
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(false);
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }

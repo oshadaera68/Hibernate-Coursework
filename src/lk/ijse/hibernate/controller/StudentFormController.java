@@ -143,6 +143,8 @@ public class StudentFormController {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sipsewana Institute | MINDARTLK Creations");
         primaryStage.centerOnScreen();
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(false);
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }

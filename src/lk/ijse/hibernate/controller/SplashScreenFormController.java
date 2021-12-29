@@ -61,6 +61,8 @@ public class SplashScreenFormController {
                     stage.setScene(scene);
                     stage.setTitle("Sipsewana Institute | MINDARTLK Creations");
                     stage.show();
+                    stage.setFullScreen(false);
+                    stage.setResizable(false);
                     rootContext.getScene().getWindow().hide();
                 });
             } catch (Exception ex) {

@@ -143,6 +143,8 @@ public class ProgramFromController {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sipsewana Institute | MINDARTLK Creations");
         primaryStage.centerOnScreen();
+        primaryStage.setFullScreen(false);
+        primaryStage.setResizable(false);
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }

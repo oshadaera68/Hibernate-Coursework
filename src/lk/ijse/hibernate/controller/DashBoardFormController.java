@@ -135,12 +135,13 @@ public class DashBoardFormController {
                 Stage primaryStage = (Stage) this.rootContext.getScene().getWindow();
                 primaryStage.setScene(subScene);
                 primaryStage.centerOnScreen();
+                primaryStage.setFullScreen(false);
+                primaryStage.setResizable(false);
 
                 TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
                 tt.setFromX(-subScene.getWidth());
                 tt.setToX(0);
                 tt.play();
-
             }
         }
     }
