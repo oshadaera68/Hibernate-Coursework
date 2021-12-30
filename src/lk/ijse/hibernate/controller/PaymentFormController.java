@@ -4,5 +4,9 @@
  */
 package lk.ijse.hibernate.controller;
 
+import javafx.scene.input.MouseEvent;
+
 public class PaymentFormController {
+    public void navigateToBack(MouseEvent mouseEvent) {
+    }
 }

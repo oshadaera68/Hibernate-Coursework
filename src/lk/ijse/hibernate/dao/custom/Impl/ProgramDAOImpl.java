@@ -21,7 +21,6 @@ public class ProgramDAOImpl implements ProgramDAO {
         Transaction t1 = session.beginTransaction();
 
         session.save(entity);
-        System.out.println(entity.toString());
         t1.commit();
         session.close();
         return true;

@@ -55,7 +55,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgPayment" fitHeight="103.0" fitWidth="126.0" layoutX="436.0" layoutY="87.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgPayment" fitHeight="103.0" fitWidth="126.0" layoutX="436.0" layoutY="87.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/mobile-payment.png" />
          </image>

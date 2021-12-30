@@ -93,7 +93,7 @@ public class DashBoardFormController {
 
                 case "imgPayment":
                     lblMenu.setText("Manage Payments");
-                    lblDescription.setText("Click to payment section");
+                    lblDescription.setText("Click to paying students courses");
                     break;
             }
 
@@ -126,7 +126,7 @@ public class DashBoardFormController {
                     root = FXMLLoader.load(getClass().getResource("../view/ProgramForm.fxml"));
                     break;
                 case "imgPayment":
-                    root = FXMLLoader.load(getClass().getResource("../view/PaymentForm.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("../view/PaymentAndReportForm.fxml"));
                     break;
             }
 

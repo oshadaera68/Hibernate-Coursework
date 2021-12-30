@@ -4,5 +4,8 @@
  */
 package lk.ijse.hibernate.entity;
 
-public class Payment implements SuperEntity{
+public class Payment implements SuperEntity {
+    String pId;
+    String date;
+
 }
