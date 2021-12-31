@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="631.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.PaymentFormController">
    <children>
       <Label layoutX="362.0" layoutY="17.0" text="Student Payment Form" textFill="#1835ee">
@@ -16,7 +15,7 @@
          </font>
       </Label>
       <Separator layoutX="320.0" layoutY="54.0" prefHeight="0.0" prefWidth="339.0" />
-      <ImageView fitHeight="53.0" fitWidth="57.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="53.0" fitWidth="57.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#navigateBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/home-icon.png" />
          </image>
