@@ -60,6 +60,8 @@ public class SplashScreenFormController {
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.setTitle("Sipsewana Institute | MINDARTLK Creations");
+                    stage.setFullScreen(false);
+                    stage.setResizable(false);
                     stage.show();
                     rootContext.getScene().getWindow().hide();
                 });

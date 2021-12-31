@@ -67,14 +67,14 @@ public class DashBoardFormController {
 
             switch (icon.getId()) {
                 case "imgStudent":
-                    root = FXMLLoader.load(getClass().getResource("/view/StudentForm.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("../view/StudentForm.fxml"));
                     break;
                 case "imgProgram":
-                    root = FXMLLoader.load(getClass().getResource("/view/ProgramForm.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("../view/ProgramForm.fxml"));
                     break;
 
                 case "imgPayment":
-                    root = FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("../view/PaymentForm.fxml"));
                     break;
             }
 
@@ -83,6 +83,8 @@ public class DashBoardFormController {
                 Stage primaryStage = (Stage) this.rootContext.getScene().getWindow();
                 primaryStage.setScene(subScene);
                 primaryStage.centerOnScreen();
+                primaryStage.setResizable(false);
+                primaryStage.setFullScreen(false);
 
                 TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
                 tt.setFromX(-subScene.getWidth());
