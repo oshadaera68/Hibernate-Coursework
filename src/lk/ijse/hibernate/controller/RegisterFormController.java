@@ -47,7 +47,7 @@ public class RegisterFormController {
 
     public void initialize() {
         cmbStudentIds.requestFocus();
-        btnRegister.setDisable(true);
+        //btnRegister.setDisable(true);
 
         try {
 
