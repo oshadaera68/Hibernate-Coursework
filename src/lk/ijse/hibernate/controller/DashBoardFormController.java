@@ -29,8 +29,8 @@ public class DashBoardFormController {
     public ImageView imgProgram;
     public Label lblMenu;
     public Label lblDescription;
-    public ImageView imgPayment;
     public AnchorPane rootContext;
+    public ImageView imgRegister;
 
     public void initialize() {
         loadDateAndTime();
@@ -73,8 +73,8 @@ public class DashBoardFormController {
                     root = FXMLLoader.load(getClass().getResource("../view/ProgramForm.fxml"));
                     break;
 
-                case "imgPayment":
-                    root = FXMLLoader.load(getClass().getResource("../view/PaymentForm.fxml"));
+                case "imgRegister":
+                    root = FXMLLoader.load(getClass().getResource("../view/RegisterForm.fxml"));
                     break;
             }
 
@@ -109,9 +109,9 @@ public class DashBoardFormController {
                     lblDescription.setText("Add,delete and updating programs..");
                     break;
 
-                case "imgPayment":
-                    lblMenu.setText("Payment Form");
-                    lblDescription.setText("Payment Form of Students");
+                case "imgRegister":
+                    lblMenu.setText("Register Form");
+                    lblDescription.setText("Register Form of Students");
                     break;
             }
 

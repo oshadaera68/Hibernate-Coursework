@@ -6,6 +6,7 @@
 package lk.ijse.hibernate.util;
 
 import lk.ijse.hibernate.entity.Program;
+import lk.ijse.hibernate.entity.Registration;
 import lk.ijse.hibernate.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,7 +21,7 @@ public class FactoryConfig {
 
     private FactoryConfig() {
 
-        Configuration config = new Configuration().addAnnotatedClass(Student.class).addAnnotatedClass(Program.class);
+        Configuration config = new Configuration().addAnnotatedClass(Student.class).addAnnotatedClass(Program.class).addAnnotatedClass(Registration.class);
         sessionFactory = config.buildSessionFactory();
         Properties properties = new Properties();
         try {
