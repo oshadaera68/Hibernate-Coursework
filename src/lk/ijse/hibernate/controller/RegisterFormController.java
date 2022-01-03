@@ -21,6 +21,9 @@ import lk.ijse.hibernate.bo.custom.Impl.ProgramBOImpl;
 import lk.ijse.hibernate.bo.custom.Impl.StudentBOImpl;
 import lk.ijse.hibernate.entity.Program;
 import lk.ijse.hibernate.entity.Student;
+import lk.ijse.hibernate.util.FactoryConfig;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.io.IOException;
 import java.net.URL;
@@ -110,7 +113,13 @@ public class RegisterFormController {
     }
 
     public void registerOnAction(ActionEvent actionEvent) throws IOException {
+        Session session = FactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
 
+
+
+        transaction.commit();
+        session.close();
     }
 
     public void dashBoardOnAction(ActionEvent actionEvent) throws IOException {

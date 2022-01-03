@@ -4,34 +4,54 @@
  */
 package lk.ijse.hibernate.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.util.Objects;
+
+@Entity
 public class Registration implements SuperEntity {
-    private String studentId;
-    private String programId;
+
+    @Id
+    private int registrationId;
+    @ManyToOne
+    private Student student;
+    @ManyToOne
+    private Program program;
     private String regDate;
 
     public Registration() {
     }
 
-    public Registration(String studentId, String programId, String regDate) {
-        this.studentId = studentId;
-        this.programId = programId;
+    public Registration(int registrationId, Student student, Program program, String regDate) {
+        this.registrationId = registrationId;
+        this.student = student;
+        this.program = program;
         this.regDate = regDate;
     }
 
-    public String getStudentId() {
-        return studentId;
+    public int getRegistrationId() {
+        return registrationId;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setRegistrationId(int registrationId) {
+        this.registrationId = registrationId;
     }
 
-    public String getProgramId() {
-        return programId;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setProgramId(String programId) {
-        this.programId = programId;
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Program getProgram() {
+        return program;
+    }
+
+    public void setProgram(Program program) {
+        this.program = program;
     }
 
     public String getRegDate() {
@@ -43,10 +63,24 @@ public class Registration implements SuperEntity {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Registration that = (Registration) o;
+        return registrationId == that.registrationId && Objects.equals(student, that.student) && Objects.equals(program, that.program) && Objects.equals(regDate, that.regDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(registrationId, student, program, regDate);
+    }
+
+    @Override
     public String toString() {
         return "Registration{" +
-                "studentId='" + studentId + '\'' +
-                ", programId='" + programId + '\'' +
+                "registrationId=" + registrationId +
+                ", student=" + student +
+                ", program=" + program +
                 ", regDate='" + regDate + '\'' +
                 '}';
     }
