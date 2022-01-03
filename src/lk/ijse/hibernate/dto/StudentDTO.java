@@ -7,8 +7,6 @@ package lk.ijse.hibernate.dto;
 
 import lk.ijse.hibernate.entity.Program;
 
-import javax.persistence.ManyToMany;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDTO {
@@ -19,11 +17,10 @@ public class StudentDTO {
     private String address;
     private String contactNo;
 
-
-    public StudentDTO(String id, String name, String nic, String email, String address, String contactNo) {
+    public StudentDTO() {
     }
 
-    public StudentDTO(String id, String name, String nic, String email, String address, String contactNo, List<Program> programs) {
+    public StudentDTO(String id, String name, String nic, String email, String address, String contactNo) {
         this.id = id;
         this.name = name;
         this.nic = nic;
@@ -31,6 +28,15 @@ public class StudentDTO {
         this.address = address;
         this.contactNo = contactNo;
     }
+
+   /* public StudentDTO(String id, String name, String nic, String email, String address, String contactNo, List<Program> programs) {
+        this.id = id;
+        this.name = name;
+        this.nic = nic;
+        this.email = email;
+        this.address = address;
+        this.contactNo = contactNo;
+    }*/
 
     public String getId() {
         return id;

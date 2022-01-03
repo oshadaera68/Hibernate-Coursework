@@ -21,12 +21,14 @@ public class DAOFactory {
                 return new StudentDAOImpl();
             case PROGRAM:
                 return new ProgramDAOImpl();
+            case REGISTRATION:
+                return new RegisterDAOImpl();
             default:
                 return null;
         }
     }
 
     public enum DaoTypes {
-        STUDENT,PROGRAM
+        STUDENT,PROGRAM,REGISTRATION
     }
 }
