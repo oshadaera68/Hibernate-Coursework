@@ -14,5 +14,4 @@ public class RegisterBOImpl implements RegisterBO {
     public boolean saveReg(Registration reg){
         return registerDAO.save(new Registration(reg.getRegistrationId(), reg.getStudent(), reg.getProgram(), reg.getRegDate()));
     }
-
 }
