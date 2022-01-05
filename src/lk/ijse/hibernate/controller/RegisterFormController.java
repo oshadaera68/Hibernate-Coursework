@@ -14,19 +14,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hibernate.bo.custom.Impl.BOFactory;
 import lk.ijse.hibernate.bo.custom.Impl.ProgramBOImpl;
+import lk.ijse.hibernate.bo.custom.Impl.RegisterBOImpl;
 import lk.ijse.hibernate.bo.custom.Impl.StudentBOImpl;
+import lk.ijse.hibernate.dto.RegistrationDTO;
 import lk.ijse.hibernate.entity.Program;
 import lk.ijse.hibernate.entity.Student;
-import lk.ijse.hibernate.util.FactoryConfig;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class RegisterFormController {
@@ -47,8 +50,10 @@ public class RegisterFormController {
     public JFXButton btnNewStudent;
     ObservableList<String> studentsList = FXCollections.observableArrayList();
     ObservableList<String> programsList = FXCollections.observableArrayList();
+    private final RegisterBOImpl registerBO = (RegisterBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.REGISTERATION);
 
     public void initialize() {
+
         cmbStudentIds.requestFocus();
         //btnRegister.setDisable(true);
 
@@ -113,13 +118,17 @@ public class RegisterFormController {
     }
 
     public void registerOnAction(ActionEvent actionEvent) throws IOException {
-        Session session = FactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        String studentId = cmbStudentIds.getValue();
+        String programId = cmbProgramIds.getValue();
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        RegistrationDTO dto = new RegistrationDTO(studentId, programId, date);
+        boolean b = registerBO.saveReg(dto);
 
-
-
-        transaction.commit();
-        session.close();
+        if (b) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try again...", ButtonType.OK).showAndWait();
+        }
     }
 
     public void dashBoardOnAction(ActionEvent actionEvent) throws IOException {

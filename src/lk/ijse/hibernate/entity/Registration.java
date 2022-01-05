@@ -20,7 +20,7 @@ public class Registration implements SuperEntity {
     private Program program;
     private String regDate;
 
-    public Registration() {
+    public Registration(Student student, Program program, String date) {
     }
 
     public Registration(int registrationId, Student student, Program program, String regDate) {

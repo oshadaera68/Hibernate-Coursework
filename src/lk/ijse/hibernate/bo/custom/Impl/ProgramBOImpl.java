@@ -7,14 +7,13 @@ package lk.ijse.hibernate.bo.custom.Impl;
 
 import lk.ijse.hibernate.dao.custom.Impl.DAOFactory;
 import lk.ijse.hibernate.dao.custom.Impl.ProgramDAO;
-import lk.ijse.hibernate.dto.ProgramDTO;
 import lk.ijse.hibernate.entity.Program;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProgramBOImpl implements ProgramBO {
-    ProgramDAO programDAO = (ProgramDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DaoTypes.PROGRAM);
+    private final ProgramDAO programDAO = (ProgramDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DaoTypes.PROGRAM);
 
     @Override
     public boolean saveProgram(Program dto) {
@@ -41,7 +40,7 @@ public class ProgramBOImpl implements ProgramBO {
         return arrayList;
     }
 
-    public Program getProgram(String id){
+    public Program getProgram(String id) {
         return programDAO.get(id);
     }
 }
